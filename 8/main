@@ -1,0 +1,21 @@
+#include<iostream>
+#include <vector>
+using namespace std;
+int main()
+{
+    int height=5;
+    vector<vector<int>> triangle = {
+            {7},
+            {3, 8},
+            {8, 1, 0},
+            {2, 7, 4, 4},
+            {4, 5, 2, 6, 5}
+    };
+    for (int i=height-2; i>-1; i--){
+        for (int j=0; j<=i; j++){
+            triangle[i][j]+=max(triangle[i+1][j], triangle[i+1][j+1]);
+        }
+    }
+    cout<<triangle[0][0];
+    return 0;
+}
